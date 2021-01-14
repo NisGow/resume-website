@@ -1,0 +1,19 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+<div class="row justify-content-center my-3">
+    <img src="{{ project.image.url}}" alt="">
+  </div>
+
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-9 text-center">
+    <h2>{{project.title}}</h2>
+    <h4>{{ project.smalldescription }}</h4>
+    <p>{{ project.description }}</p>
+    </div>
+  </div>
+
+
+
+
+{% endblock %}

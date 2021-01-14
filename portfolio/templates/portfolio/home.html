@@ -1,0 +1,42 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="row justify-content-center mt-3 ">
+    <img src="{% static 'portfolio/personalpic.JPG' %}" class="img-fluid" >
+  </div>
+
+<div class="row justify-content-center my-3">
+  <div class="col-md-9 text-center">
+    <h1>Nisha Gowda</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-9 ">
+      <p>Hello! I am a 3rd year student majoring in the Electrical and Computer Engineering at the University of Texas at Austin. Outside of school, I work on projects to help gain expereince in software engineering and web development.<p>
+        <p>I am experienced in Python, Java,C, C++, MATLAB, HTML, CSS, and embedded microcontroller programming. I also have strong leadership and interpersonal skills and am currently the Publicity Chair of the IEEE Power and Energy Society at UT. </p>
+
+      </div>
+    </div>
+
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="container">
+  <div class="row">
+  {% for project in projects %}
+   <div class="col-lg-4 col-md-6 py-md-2">
+    <div class="card" >
+      <a href="{% url 'detail' project.id %}"><img src="{{ project.image.url}}" alt="" class="card-img-top"></a>
+    <div class="card-body">
+      <h5 class="card-title">{{project.title}}</h5>
+      <p class="card-text">{{ project.smalldescription }}</p>
+    </div>
+  </div>
+</div>
+
+
+   {% endfor %}
+   </div>
+</div>
+{% endblock %}
